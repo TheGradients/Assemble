@@ -6,11 +6,12 @@ import { YoutubeIcon } from "../svg/YoutubeIcon";
 
 export function Sidebar() {
   return (
-    <div className=" absolute top-6 left-6 h-[75vh] w-[3.2vw] rounded-xl bg-[#151313ee] flex flex-col items-center justify-between p-3">
+    <div className="relative h-[85vh] w-[3.2vw] ">
+      <div className=" fixed top-20 left-6 h-[85vh] w-[3.2vw] rounded-xl bg-[#151313ee] flex flex-col items-center justify-between p-3">
       <div>
         <SidebarIcon icons={<HomeIcon />} />
       </div>
-      <div className="gap-2 flex flex-col">
+      <div className="gap-3 flex flex-col">
         <SidebarIcon icons={<YoutubeIcon />} />
         <SidebarIcon icons={<InstaIcon />} />
         <SidebarIcon icons={<YoutubeIcon />} />
@@ -19,6 +20,7 @@ export function Sidebar() {
       <div>
         <SidebarIcon icons={<SettingIcon />} />
       </div>
+    </div>
     </div>
   );
 }

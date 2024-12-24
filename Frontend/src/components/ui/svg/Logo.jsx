@@ -2,8 +2,8 @@ export default function Logo() {
   return (
     <div className="relative ">
       <svg
-        width="155"
-        height="64"
+        width="140"
+        height="45"
         viewBox="0 0 155 64"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

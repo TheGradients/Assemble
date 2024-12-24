@@ -17,12 +17,12 @@ import AccountCenter from "./components/AccountCenter"
 import Homepage from "./components/homepage/Homepage";
 const App = () => {
   return (
-    <>
+    <div className="overflow-hidden no-scrollbar">
       {/* <Body/> */}
       {/* <DashBoard/> */}
       <Homepage/>
       
-    </>
+    </div>
   );
 };
 

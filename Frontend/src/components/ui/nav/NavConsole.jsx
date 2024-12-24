@@ -2,7 +2,7 @@ import navConsole from "../../../assets/navConsole.svg";
 import { TeamLogo } from "../svg/TeamLogo";
 const NavConsole = () => {
   return (
-    <div className=" h-[7vh] w-[35vw] p-2  bg-[#151313c5] clip-path-navConsole relative flex items-center justify-between ">
+    <div className=" h-[45px] w-[30vw] p-2  bg-[#151313c5] clip-path-navConsole relative flex items-center justify-between ">
       <div className="flex items-center justify-between w-full m-6 ">
         <div className=" cursor-pointer">
             <TeamLogo/>
