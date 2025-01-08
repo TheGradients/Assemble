@@ -458,4 +458,21 @@ background-size: cover;
   .no-scrollbar::-webkit-scrollbar {
     display: none;
 }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+}
+.ACMAIN{
+  height: 100vh;
+  width: 100vw;
+  background-image: url("../public/AC.png");
+  background-size: cover;
+  font-family: "Agencyfb";
+}
+.frosted-glass {
+  background-color: rgba(4, 4, 4, 0.2); /* Transparent white */
+  backdrop-filter: blur(1px); /* Frosted glass effect */
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Border to enhance the effect */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: for a subtle shadow */
 }

@@ -1,4 +1,5 @@
 import { User } from "../models/user.models.js";
+import { Game } from "../models/gameId.models.js";
 
 const deleteUnverifiedUsers = async () => {
     const expirationTime = 24 * 60 * 60 * 1000;
@@ -9,8 +10,12 @@ const deleteUnverifiedUsers = async () => {
             createdAt: { $lt: new Date(now.getTime() - expirationTime) },
         });
         if (expiredUsers.length > 0) {
+            const userIds = expiredUsers.map((user) => user._id);
             await User.deleteMany({
-                _id: { $in: expiredUsers.map((user) => user._id) },
+                _id: { $in: userIds },
+            });
+            await Game.deleteMany({
+                owner: { $in: userIds },
             });
             console.log(`Deleted ${expiredUsers.length} unverified users.`);
         }

@@ -16,6 +16,7 @@
     - VERIFY EMAIL - `/api/v1/users/verifyNewEmail` ✅
 - CHANGE USERNAME - `/api/v1/users/changeUsername` ✅
 - CHANGE PASSWORD - `/api/v1/users/changePassword` ✅
+- USER DATA - `/api/v1/users/data` ✅
 
 # Game ID Controller
 

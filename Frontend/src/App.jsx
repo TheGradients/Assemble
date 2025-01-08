@@ -15,12 +15,15 @@ import UsernameSent from "./components/UsernameSent";
 import DashBoard from "./components/DashBoard";
 import AccountCenter from "./components/AccountCenter"
 import Homepage from "./components/homepage/Homepage";
+import NavConsole from "./components/ui/nav/NavConsole";
 const App = () => {
   return (
     <div className="overflow-hidden no-scrollbar">
       {/* <Body/> */}
       {/* <DashBoard/> */}
       <Homepage/>
+      {/* <AccountCenter /> */}
+      {/* <NavConsole/> */}
       
     </div>
   );
