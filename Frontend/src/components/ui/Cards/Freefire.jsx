@@ -557,7 +557,7 @@ export const Freefire = () => {
         <clipPath id="clip0_595_574">
           <rect width="320" height="380" rx="30" fill="white" />
         </clipPath>
-        <image
+        <img
           id="image0_595_574"
           width="387"
           height="640"

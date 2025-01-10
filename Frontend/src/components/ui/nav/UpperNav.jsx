@@ -12,7 +12,7 @@ const UpperNav = (props) => {
         <div className="w-[12%]">
             <Logo/>
         </div>
-        <div className="relative w-[30%] z-10">
+        <div className="relative h-[6vh] w-[30%] z-10">
             <NavConsole name="Homepage" />
         </div>
         <div className=" w-[11%]  flex justify-between items-center z-10">

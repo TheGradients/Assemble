@@ -57,8 +57,8 @@ export default function Hero(props) {
         </div>
       </section>
       {/* card */}
-      <section className="mt-4 w-[90vw] no-scrollbar overflow-x-scroll ">
-        <div className="flex h-[49vh] justify-between w-[98vw]  overflow-hidden">
+      <section className="mt-4 h-[45%]  w-[110%] no-scrollbar overflow-x-scroll ">
+        <div className="flex items-center  h-[100%] justify-between w-[110%] overflow-hidden ">
           <GameCard card={<Bgmi/>}/>
           <GameCard card={<Codm/>}/>
           <GameCard card={<Valo/>} />
