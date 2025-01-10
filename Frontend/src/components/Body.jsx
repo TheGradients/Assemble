@@ -10,7 +10,8 @@ import EmailVerification from "./EmailVerification";
 import GamerTag from "./GamerTag";
 import Password from "./Password";
 import PassRecovery from "./PassRecovery";
-
+import IdentityVerify from "./IdentityVerify";
+import ChangePass from "./ChangePass";
 const Body = () => {
   const approuter = createBrowserRouter([
     { path: "/", element: <Login /> },
@@ -22,7 +23,9 @@ const Body = () => {
     { path: "/EmailVerification", element: <EmailVerification /> },
     { path: "/GamerTag", element: <GamerTag /> },
     { path: "/Password", element: <Password /> },
-    {path : "/PassRecovery" , element : <PassRecovery/>}
+    {path : "/PassRecovery" , element : <PassRecovery/>},
+    {path : "identity-verify" , element : <IdentityVerify/>},
+    {path : "/ChangePass" , element : <ChangePass/>} ,
   ]);
 
   return (

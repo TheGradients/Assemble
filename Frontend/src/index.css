@@ -313,7 +313,7 @@
   justify-content: space-between;
 }
 .forgot-pass {
-  background-color: white;
+  background-color: rgb(0, 0, 0);
   padding: 5px 30px;
   font-family:"BebasNeue";
   font-weight : bold;
@@ -465,12 +465,12 @@ background-size: cover;
 .ACMAIN{
   height: 100vh;
   width: 100vw;
-  background-image: url("../public/AC.png");
+  background-image: url("../public/bdragon.png");
   background-size: cover;
   font-family: "Agencyfb";
 }
 .frosted-glass {
-  background-color: rgba(4, 4, 4, 0.2); /* Transparent white */
+  background-color: #141313; /* Transparent white */
   backdrop-filter: blur(1px); /* Frosted glass effect */
   -webkit-backdrop-filter: blur(10px); /* For Safari */
   border: 1px solid rgba(255, 255, 255, 0.3); /* Border to enhance the effect */

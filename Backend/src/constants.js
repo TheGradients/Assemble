@@ -26,10 +26,28 @@ const TOURNAMENT_TYPES = Object.freeze([
     "Squad",
 ]);
 
+const USER_ROLES = Object.freeze([
+    "USER",
+    "ADMIN",
+]);
+
+const REGION = `Asia/Kolkata`;
+
+const GAME_ID = Object.freeze({
+    "Battlegrounds Mobile India": "bgmiId",
+    "Call of Duty Mobile": "codmId",
+    "Valorant": "valorantId",
+    "Free Fire": "freefireId",
+    "Asphalt 9": "asphaltId",
+});
+
 export {
     DB_NAME,
     COOKIE_OPTIONS,
     USER_BADGES,
     GAMES,
     TOURNAMENT_TYPES,
+    USER_ROLES,
+    REGION,
+    GAME_ID,
 };

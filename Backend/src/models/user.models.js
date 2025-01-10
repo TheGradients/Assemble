@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 import bcrypt from "bcryptjs";
-import { USER_BADGES } from "../constants.js";
+import { USER_BADGES, USER_ROLES } from "../constants.js";
 
 const userSchema = new Schema({
     email: {
@@ -44,7 +44,18 @@ const userSchema = new Schema({
     canChangePassword: {
         type: Boolean,
         default: false,
-    }
+    },
+    role: {
+        type: String,
+        enum: USER_ROLES,
+        default: USER_ROLES[0],
+    },
+    registeredTournaments: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "Tournament",
+        }
+    ],
 }, {
     timestamps: true,
 });

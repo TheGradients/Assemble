@@ -3,27 +3,43 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-// import { API_END_POINT } from "./utils/constant";
+
 const Login = () => {
   const [username, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState(""); // State to track error messages
   const navigate = useNavigate();
 
   const getInputData = async (e) => {
     e.preventDefault();
+    setErrorMessage(""); // Clear any existing error messages
+
     try {
-      const response = await axios.post('/api/v1/users/login', {
-        username,
-        password,
-      }, {
-        withCredentials: true,
-      });
-      console.log('API Response:', response.data);
+      const response = await axios.post(
+        '/api/v1/users/login',
+        {
+          username,
+          password,
+        },
+        {
+          withCredentials: true,
+        }
+      );
+
+      if (response.status === 200 && response.data.success) {
+        console.log('API Response:', response.data);
+        navigate("/browse");
+        setEmail("");
+        setPassword("");
+      } else {
+        setErrorMessage(response.data.message || "Invalid credentials. Please try again.");
+      }
     } catch (error) {
       console.error('Error during API call:', error);
+      setErrorMessage(
+        error.response?.data?.message || "An error occurred. Please try again."
+      );
     }
-    setEmail("");
-    setPassword("");
   };
 
   const cantSignin = (e) => {
@@ -71,6 +87,9 @@ const Login = () => {
             <button type="submit" className="sign-in-button">
               CONTINUE
             </button>
+            {errorMessage && (
+              <p className="error-message">{errorMessage}</p> // Display error message
+            )}
             <div className="flex justify-between">
               <button
                 className="font-medium"
