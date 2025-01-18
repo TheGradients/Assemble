@@ -16,14 +16,20 @@ import DashBoard from "./components/DashBoard";
 import AccountCenter from "./components/AccountCenter"
 import Homepage from "./components/homepage/Homepage";
 import NavConsole from "./components/ui/nav/NavConsole";
+import GamerTag from "./components/GamerTag";
+import Password from "./components/Password";
 const App = () => {
   return (
     <div className="overflow-hidden no-scrollbar">
-      {/* <Body/> */}
+       {/* <Body/> */}
+      {/* <Login/> */} 
       {/* <DashBoard/> */}
-      <Homepage/>
-      {/* <AccountCenter /> */}
-      {/* <NavConsole/> */}
+      {/* <Homepage/> */}
+      <AccountCenter />
+      {/* <Password/> */}
+      {/* <GamerTag/> */}
+     {/* <NavConsole/> */}
+      {/* <UsernameRecover/> */}
       
     </div>
   );
