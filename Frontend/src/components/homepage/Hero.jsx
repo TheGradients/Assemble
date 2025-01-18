@@ -33,7 +33,7 @@ export default function Hero(props) {
                 src="../../../public/svgviewer-png-output.png"
                 alt=""
               />
-            </div>
+            </div> 
             <h1 className="text-4xl font-semibold tracking-widest -mt-9 z-20">
               Night Hunter
             </h1>

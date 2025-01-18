@@ -10,7 +10,7 @@ const Homepage = () => {
     <div className="h-[100vh] w-[100vw] overflow-hidden relative no-scrollbar ">
       <div className="bg w-[100vw] h-[100vh] -z-10 bg-[#010101eb] no-scrollbar  fixed top-0 l-0">
         <img
-          className="w-[100vw] h-[100vh] object-cover object-top "
+          className="w-[1 00vw] h-[100vh] opacity-65 object-cover object-top "
           src="../../public/image.png"
           alt="img"
         />

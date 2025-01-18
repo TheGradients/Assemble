@@ -1,5 +1,6 @@
 import navConsole from "../../../assets/navConsole.svg";
 import { TeamLogo } from "../svg/TeamLogo";
+import { TeamLogo2 } from "../svg/TeamLogo2";
 const NavConsole = (props) => {
   return (
     <div className=" h-[100%] w-[100%] p-[1%]  bg-[#151313c5] clip-path-navConsole relative flex items-center justify-center ">
@@ -11,7 +12,7 @@ const NavConsole = (props) => {
           <h1 className="text-white uppercase font-semibold tracking-wider ">{props.name}</h1>
         </div>
         <div className="cursor-pointer">
-            <TeamLogo/>
+            <TeamLogo2/>
         </div>
       </div>
     </div>

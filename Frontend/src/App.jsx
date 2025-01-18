@@ -16,12 +16,14 @@ import DashBoard from "./components/DashBoard";
 import AccountCenter from "./components/AccountCenter"
 import Homepage from "./components/homepage/Homepage";
 import NavConsole from "./components/ui/nav/NavConsole";
+import BgmiPage from "./pages/BgmiPage";
 const App = () => {
   return (
     <div className="overflow-hidden no-scrollbar">
       {/* <Body/> */}
       {/* <DashBoard/> */}
-      <Homepage/>
+      {/* <Homepage/> */}
+      <BgmiPage/>
       {/* <AccountCenter /> */}
       {/* <NavConsole/> */}
       
