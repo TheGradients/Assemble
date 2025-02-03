@@ -45,4 +45,8 @@ app.use("/api/v1/users/games", gameRouter);
 import tournamentRouter from "./routes/tournament.routes.js";
 app.use("/api/v1/tournament",tournamentRouter);
 
+//ADMIN ROUTE
+import adminRouter from "./routes/admin.routes.js";
+app.use("/api/v1/admin",adminRouter);
+
 export default app;

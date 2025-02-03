@@ -12,6 +12,7 @@ import Password from "./Password";
 import PassRecovery from "./PassRecovery";
 import IdentityVerify from "./IdentityVerify";
 import ChangePass from "./ChangePass";
+import UsernameOTP from "./UsernameOTP";
 const Body = () => {
   const approuter = createBrowserRouter([
     { path: "/", element: <Login /> },
@@ -24,8 +25,10 @@ const Body = () => {
     { path: "/GamerTag", element: <GamerTag /> },
     { path: "/Password", element: <Password /> },
     {path : "/PassRecovery" , element : <PassRecovery/>},
-    {path : "identity-verify" , element : <IdentityVerify/>},
+    {path : "/identity-verify" , element : <IdentityVerify/>},
     {path : "/ChangePass" , element : <ChangePass/>} ,
+    // {path : "/UsernameOTP" , element : <UsernameOTP/>} ,
+    // {path : "/UsernameRecovery" , element : <UsernameRecovery/>} ,
   ]);
 
   return (

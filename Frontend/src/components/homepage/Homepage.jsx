@@ -16,7 +16,7 @@ const Homepage = () => {
         />
       </div>
       <div className="z-20">
-        <UpperNav />
+        <UpperNav name ="Homepage" />
       </div>
       <div className="z-0 ">
         <HomeChar />

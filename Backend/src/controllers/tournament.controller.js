@@ -8,71 +8,11 @@ import { Tournament } from "../models/tournament.models.js";
 import { REGION, GAME_ID } from "../constants.js";
 import { check24HourFormat, checkDateFormat } from "../helpers/checkDateTime.js";
 
-const now = new Date();
-
-// admin controlled routes
-const createTournament = asyncHandler(async (req, res) => {
-    const {
-        name,
-        matchDate,
-        matchTime,
-        registrationEndDate,
-        registrationEndTime,
-        totalSlots,
-        prizePool,
-        type,
-        game,
-        entryFee,
-        description,
-        instructions
-    } = req.body;
-    if (!check24HourFormat(matchTime) || !check24HourFormat(registrationEndTime)) {
-        throw new ApiError(400, "Invalid Time Format. Please Use hh:mm Format.");
-    }
-    if (!checkDateFormat(matchDate) || !checkDateFormat(registrationEndDate)) {
-        throw new ApiError(400, "Invalid Date Format. Please Use yyyy-MM-dd Format.");
-    }
-    if(new Date(`${registrationEndDate}T${registrationEndTime}`) <= now){
-        throw new ApiError(400, "Registration End Date Must Be Greater Than Current Date and Time.");
-    }
-    if (new Date(`${matchDate}T${matchTime}`) <= new Date(`${registrationEndDate}T${registrationEndTime}`)) {
-        throw new ApiError(400, "Match Date Must Be Greater Than Registration End Date and Time.");
-    }
-    const existingTournament = await Tournament.findOne({ name });
-    if (existingTournament) {
-        throw new ApiError(400, "Tournament With This Name Already Exists.");
-    }
-    try {
-        const matchTiming = DateTime.fromISO(`${matchDate}T${matchTime}`, { zone: REGION });
-        const registrationTiming = DateTime.fromISO(`${registrationEndDate}T${registrationEndTime}`, { zone: REGION });
-        const tournament = await Tournament.create({
-            name,
-            matchDate: matchTiming.toFormat("dd-MM-yyyy"),
-            matchTime: matchTiming.toFormat("HH:mm"),
-            registrationEndDate: registrationTiming.toFormat("dd-MM-yyyy"),
-            registrationEndTime: registrationTiming.toFormat("HH:mm"),
-            totalSlots,
-            prizePool,
-            type,
-            game,
-            entryFee,
-            description,
-            instructions,
-        });
-        return res
-        .status(201)
-        .json( new ApiResponse(201, tournament, "Tournament Created Successfully!!"));
-    } catch (error) {
-        throw new ApiError(500, error.message || "Internal Server Error");
-    }
-});
-
-// user accessed routes
 const getTournaments = asyncHandler(async (req, res) => {
     try {
         const tournaments = await Tournament.find({ 
             isActive: true,
-            isOngoing: true,
+            //isOngoing: true,
         }).sort({
             createdAt:-1,
         }).select(
@@ -142,7 +82,6 @@ const registerUser = asyncHandler(async (req, res) => {
 });
 
 export {
-    createTournament,
     getTournaments,
     getTournamentInfo,
     registerUser,

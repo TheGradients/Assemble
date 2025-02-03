@@ -30,6 +30,20 @@ const AccountCenter = () => {
     newOtp[index] = e.target.value; // Update the OTP array
     setOtp(newOtp); // Set the updated OTP array in the state
   };
+  const images = [
+    "https://res.cloudinary.com/dzyezryhf/image/upload/v1737279929/lwtjedrq3ls0vy6jyymq.svg",
+    "https://res.cloudinary.com/dzyezryhf/image/upload/v1737279951/q6eol9dwjadyvllkdfe0.svg",
+    "https://res.cloudinary.com/dzyezryhf/image/upload/v1737279948/dgshgmbmoxjsyydnf8tu.svg",
+    "https://res.cloudinary.com/dzyezryhf/image/upload/v1737279959/ux9mfgq1rsi62q0cmgb2.svg",
+    "https://res.cloudinary.com/dzyezryhf/image/upload/v1737279927/jg8icrxi700co4s5itc1.svg",
+  ];
+
+  // State to track the selected image
+  const [selectedImage, setSelectedImage] = useState(images[0]);
+
+  const handleImageSelect = (image) => {
+    setSelectedImage(image);
+  };
 
   return (
     <>
@@ -526,11 +540,36 @@ const AccountCenter = () => {
                   </div>
                 </div>
 
-                {selectedItem && (
-                  <div className="AC-cards h-32 w-64 bg-white ml-[19%] text-black ">
-                    name
+                <div>
+                  {/* AC-cards div with dynamic background */}
+                  <div
+                    className="AC-cards h-32 w-[90%] ml-[4%] text-black rounded-lg bg-cover bg-center"
+ 
+                    style={{
+                      backgroundImage: `url(${selectedImage})`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                    }}
+                  >
+                    {/* Optionally, you can add content inside AC-cards */}
                   </div>
-                )}
+
+                  {/* Choose-bg section with Tailwind CSS */}
+                  <div className="choose-bg flex gap-4 w-full mt-4">
+                    {images.map((image, index) => (
+                      <div
+                        key={index}
+                        className="Choose-bg-items h-14 w-20  rounded-lg cursor-pointer hover:opacity-75"
+                        style={{
+                          backgroundImage: `url(${image})`,
+                          backgroundSize: "cover",
+                          backgroundPosition: "center",
+                        }}
+                        onClick={() => handleImageSelect(image)}
+                      ></div>
+                    ))}
+                  </div>
+                </div>
               </div>
             )}
           </div>

@@ -3,48 +3,8 @@ import axios from "axios";
 import HeaderPR from "./HeaderPR";
 import { useNavigate } from "react-router-dom";
 
-const PassRecovery = () => {
-  const navigate = useNavigate();
-
-  // State for input values and error handling
-  const [email, setEmail] = useState("");
-
-  const [errorMessage, setErrorMessage] = useState("");
-
-  const handleclick = async () => {
-    try {
-      const response = await axios.post(
-        " ",
-        {
-        email
-        },
-        {
-          withCredentials: true,
-        },
-        navigate("/identity-verify",{ state: { email } }),
-      );
-
-      if (response.status === 200 && response.data.success) {
-        console.log("API Response:", response.data);
-        navigate("/browse");
-        setEmail("");
-        setPassword("");
-      } else {
-        setErrorMessage(
-          response.data.message || "Invalid credentials. Please try again."
-        );
-      }
-    } catch (error) {
-      console.error("Error during API call:", error);
-      setErrorMessage(
-        error.response?.data?.message || "An error occurred. Please try again."
-      );
-    }
-  
-  };
-  // const handleclickUsername = () => {
-  //   // navigate("/UsernameRecovery");
-  // }
+const Sample = () => {
+   
   return (
     <>
       <div className="pr-page">
@@ -70,15 +30,14 @@ const PassRecovery = () => {
               <input
                 className="input-box"
                 placeholder="EMAIL ID"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                
               />
-              <button className="sign-in-button" onClick={handleclick}>
+              <button className="sign-in-button" >
                 CONTINUE
               </button>
-              {errorMessage && (
+              
                 <p className="error-message text-red-500">{errorMessage}</p>
-              )}
+        
             </div>
             <div>
               <div className="line"></div>
@@ -94,4 +53,4 @@ const PassRecovery = () => {
   );
 };
 
-export default PassRecovery;
+export default Sample;

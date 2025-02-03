@@ -83,7 +83,10 @@ const tournamentScehma = new Schema({
         type: Boolean,
         default: false,
     },
-    // idp: {},
+    idp:{
+        type: Schema.Types.ObjectId,
+        ref: "IDP",
+    }
     // refundForm: {},
 }, {
     timestamps: true,

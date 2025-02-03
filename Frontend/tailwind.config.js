@@ -4,11 +4,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        "ASSgreen": "#0CFFA7",
-        "ASSblue": "#79A9F8",
-        "ASSred": "#E24040",
-        "ASSyellow": "#EDFC27",
+        ASSgreen: "#0CFFA7",
+        ASSblue: "#79A9F8",
+        ASSred: "#E24040",
+        ASSyellow: "#EDFC27",
       },
+      backgroundImage: {},
     },
   },
   plugins: [],
