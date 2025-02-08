@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import HeaderPR from "./HeaderPR";
@@ -6,9 +6,20 @@ import HeaderPR from "./HeaderPR";
 const IdentityVerify = () => {
   const location = useLocation();
   const navigate = useNavigate();
+
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
   const [error, setError] = useState("");
   const email = location.state?.email || "";
+  const [isForgotPassword, setIsForgotPassword] = useState(
+    location.state?.isForgotPassword || true
+  );
+
+  useEffect(() => {
+    // Set initial mode based on the state passed from navigation
+    if (location.state?.isForgotPassword !== undefined) {
+      setIsForgotPassword(location.state.isForgotPassword);
+    }
+  }, [location.state]);
 
   const handleOtpChange = (e, index) => {
     const value = e.target.value;
@@ -38,20 +49,23 @@ const IdentityVerify = () => {
     }
 
     try {
-      const response = await axios.post(
-        "/api/v1/users/forgotPasswordVerificationCode",
-        {
-          email,
-          code: otpValue,
-        },
-        navigate("/ChangePass", { state: { email } })
-      );
-      // if (response.status === 200) {
-      //   setError("");
-        
-      // } else {
-      //   setError(response.data.message || "Failed to verify OTP. Please try again.");
-      // }
+      const endpoint = isForgotPassword
+        ? "/api/v1/users/forgotPasswordVerificationCode"
+        : "/api/v1/users/forgotUsernameVerificationCode";
+
+      const response = await axios.post(endpoint, {
+        email,
+        code: otpValue,
+      });
+
+      if (response.status === 200) {
+        setError(""); // Clear error if successful
+        isForgotPassword
+          ? navigate("/ChangePass", { state: { email } })
+          :  navigate("/UsernameSent", { state: { email } });
+      } else {
+        setError(response.data.message || "Failed to verify OTP. Please try again.");
+      }
     } catch (error) {
       console.error("Error verifying OTP:", error);
       setError("Failed to verify OTP. Please try again.");
@@ -63,8 +77,22 @@ const IdentityVerify = () => {
       <HeaderPR />
       <div className="pr-container">
         <div className="pr-top-box">
-          <button className="forgot-pass text-[#ffffff]">FORGOT PASSWORD</button>
-          <button className="forgot-pass text-white">FORGOT USERNAME</button>
+          <button
+            className={`forgot-pass rounded-lg ${
+              isForgotPassword ? "bg-white text-black" : "bg-black text-white"
+            }`}
+            onClick={() => setIsForgotPassword(true)}
+          >
+            FORGOT PASSWORD
+          </button>
+          <button
+            className={`forgot-pass rounded-lg ${
+              !isForgotPassword ? "bg-white text-black" : "bg-black text-white"
+            }`}
+            onClick={() => setIsForgotPassword(false)}
+          >
+            FORGOT USERNAME
+          </button>
         </div>
         <div className="pr-bottom-box">
           <div className="container">

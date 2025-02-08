@@ -7,7 +7,7 @@ const ChangePass = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const email = location.state?.email || "";
-  
+   const [isForgotPassword, setIsForgotPassword] = useState(true);
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
@@ -46,10 +46,22 @@ const ChangePass = () => {
       <HeaderPR />
       <div className="pr-container">
         <div className="pr-top-box">
-          <button className="forgot-pass text-[#582000] text-opacity-75">
-            FORGOT PASSWORD
-          </button>
-          <button className="forgot-pass text-black">FORGOT USERNAME</button>
+        <button
+    className={`forgot-pass rounded-lg ${
+      isForgotPassword ? "bg-white text-black" : "bg-black text-white"
+    }`}
+    onClick={() => setIsForgotPassword(true)}
+  >
+    FORGOT PASSWORD
+  </button>
+  <button
+    className={`forgot-pass rounded-lg ${
+      !isForgotPassword ? "bg-white text-black" : "bg-black text-white"
+    }`}
+    onClick={() => setIsForgotPassword(false)}
+  >
+    FORGOT USERNAME
+  </button>
         </div>
         <div className="pr-bottom-box">
           <div className="container">

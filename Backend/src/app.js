@@ -41,12 +41,16 @@ app.use("/api/v1/users", userRouter);
 import gameRouter from "./routes/games.routes.js";
 app.use("/api/v1/users/games", gameRouter);
 
-//TOURNAMENT ROUTE
+// TOURNAMENT ROUTE
 import tournamentRouter from "./routes/tournament.routes.js";
 app.use("/api/v1/tournament",tournamentRouter);
 
-//ADMIN ROUTE
+// ADMIN ROUTE
 import adminRouter from "./routes/admin.routes.js";
 app.use("/api/v1/admin",adminRouter);
+
+// RESULT ROUTE
+import resultRouter from "./routes/results.routes.js";
+app.use("/api/v1/result", resultRouter);
 
 export default app;

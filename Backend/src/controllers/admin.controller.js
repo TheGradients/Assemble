@@ -4,7 +4,7 @@ import ApiError from "../utils/ApiError.js";
 import ApiResponse from "../utils/ApiResponse.js";
 import { Result } from "../models/result.models.js";
 import { Tournament } from "../models/tournament.models.js";
-import { REGION, GAME_ID } from "../constants.js";
+import { REGION } from "../constants.js";
 import { check24HourFormat, checkDateFormat } from "../helpers/checkDateTime.js";
 import { IDP } from "../models/idp.models.js";
 
@@ -67,7 +67,6 @@ const createTournament = asyncHandler(async (req, res) => {
             isActive: true,
             //isOngoing: true,
         });
-
         return res
         .status(201)
         .json( new ApiResponse(201, tournament, "Tournament Created Successfully!!"));
@@ -78,20 +77,16 @@ const createTournament = asyncHandler(async (req, res) => {
 
 const addIDP = asyncHandler(async (req, res) => {
     const { tournamentName, roomId, roomPassword } = req.body;
-
     if (!tournamentName || !roomId || !roomPassword) {
         throw new ApiError(400, "All Fields are Required.");
     }
-
     const tournament = await Tournament.findOne({ name: tournamentName });
     if (!tournament) {
         throw new ApiError(404, "Tournament Not Found.");
     }
-
     if(tournament.idp){
         throw new ApiError(400, "IDP Already Exists for this Tournament.");
     }
-
     try {
         const idp = await IDP.create({
             tournamentId: tournament._id,
@@ -99,13 +94,11 @@ const addIDP = asyncHandler(async (req, res) => {
             roomId,
             roomPassword,
         });
-        
         const updatedTournament = await Tournament.findOneAndUpdate(
             { _id: tournament._id },
             { idp: idp._id },
             { new: true }
         );
-        
         return res
         .status(201)
         .json(new ApiResponse(201, updatedTournament, "IDP Added Successfully!!"));
@@ -116,32 +109,25 @@ const addIDP = asyncHandler(async (req, res) => {
 
 const editIDP =asyncHandler(async (req,res) =>{
     const { tournamentName, roomId, roomPassword } = req.body;
-
     if (!tournamentName || !roomId || !roomPassword){
         throw new ApiError(400, "All Fields are Required.");
     }
-
     const tournament = await Tournament.findOne({ name: tournamentName });
     if (!tournament) {
         throw new ApiError(404, "Tournament Not Found.");
     }
-
     const idp = await IDP.findOne({ tournamentId: tournament._id });
     if (!idp) {
         throw new ApiError(404, "IDP Not Found, create one first!");
     }
-
     
     try {
         idp.roomId = roomId;
         idp.roomPassword = roomPassword;
-    
         await idp.save();
-    
         return res
         .status(200)
         .json(new ApiResponse(200, idp, "IDP Updated Successfully!!"));
-
     } catch (error) {
         throw new ApiError(500, error.message || "Internal Server Error");
     }
