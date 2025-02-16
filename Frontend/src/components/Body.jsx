@@ -13,10 +13,11 @@ import PassRecovery from "./PassRecovery";
 import IdentityVerify from "./IdentityVerify";
 import ChangePass from "./ChangePass";
 import UsernameOTP from "./UsernameOTP";
+import Homepage from "./homepage/Homepage";
 const Body = () => {
   const approuter = createBrowserRouter([
     { path: "/", element: <Login /> },
-    { path: "/browse", element: <Browse /> },
+    { path: "/browse", element: <Homepage /> },
     { path: "/Peepee", element: <Peepee /> },
     { path: "/Terms", element: <TC /> },
     { path: "/ContactUs", element: <ContactUs /> },

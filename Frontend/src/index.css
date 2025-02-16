@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-*{
+* {
   margin: 0;
   padding: 0;
 }
@@ -18,12 +18,12 @@
   src: url("./assets/fonts/BebasNeueRegular.woff2") format("woff2");
 }
 
-*{
+* {
   cursor: url("");
- }
+}
 
 .page {
-  background-image: url('https://res.cloudinary.com/deg3edza1/image/upload/v1736427009/cbwg9savualjudio405j.png');
+  background-image: url("https://res.cloudinary.com/deg3edza1/image/upload/v1736427009/cbwg9savualjudio405j.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   height: 100vh;
@@ -259,7 +259,7 @@
   transform: translate(-50%, -50%);
   border-radius: 20px;
   scrollbar-width: none;
-   /* No padding-top to avoid extra space */
+  /* No padding-top to avoid extra space */
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
   color: rgba(0, 0, 0, 0.5);
@@ -279,7 +279,7 @@
 }
 
 .peepee-doc-content {
-  padding-top: 20px; /* Adds space for the sticky heading */
+  padding: 20px; /* Adds space for the sticky heading */
 }
 .input-box-contact {
   background-color: #f6f6f6;
@@ -313,7 +313,7 @@
   width: 100vw;
   margin-bottom: 0px;
 }
-.pr-page-1{
+.pr-page-1 {
   background-image: url("https://res.cloudinary.com/deg3edza1/image/upload/v1736427654/uwlyjv2conjuqowprucj.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -325,29 +325,28 @@
   height: 75%;
   width: 25%;
   position: absolute;
-  top: 55%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 .pr-top-box {
   display: flex;
   justify-content: space-between;
 }
 .forgot-pass {
-  /* background-color: rgb(0, 0, 0); */
+  border-radius: 10px;
   padding: 5px 30px;
-  font-family:"BebasNeue";
-  font-weight : bold;
-  font-size : 18px;
-  margin : 5px;
+  font-family: "BebasNeue";
+  font-weight: bold;
+  font-size: 18px;
+  margin: 5px;
 }
 
 .pr-bottom-box {
   background-color: white;
-  height: 93%;
+  height: 50%; /* 80% of the viewport height */
   width: 100%;
   border-radius: 20px;
   padding: 20px 25px;
@@ -355,6 +354,7 @@
   flex-direction: column;
   justify-content: space-between;
 }
+
 .pr-box-content {
   /* font-family: Arial, Helvetica, sans-serif;
  */
@@ -362,45 +362,44 @@
   color: rgba(0, 0, 0, 0.5);
   text-align: center;
 }
-.pass-image{
+.pass-image {
   background-image: url("./assets/verifyPass.svg");
-  height : 50%;
-  width : full;
+  height: 50%;
+  width: full;
   background-size: cover;
 }
 /* GAME DASHBOARD */
-.main{
-   height: 100vh;
-   width: 100vw;
-   background-image: url("../public/GD.png");
-   background-size: 100% 100%;
-   font-family: "Agencyfb";
-  }
-  .right-sidebar{
-     height: 80%;
-     width:4%;
-     background-image: url("../public/rightsidebar.png");
-     background-size: 100% 100%;
-  }
-  .left-sidebar{
-   height: 80%;
-   width:4%;
-   background-image: url("../public/leftsidebar.png");
-   background-size: 100% 100%;
- }
-.t1
-{
+.main {
+  height: 100vh;
+  width: 100vw;
+  background-image: url("../public/GD.png");
+  background-size: 100% 100%;
   font-family: "Agencyfb";
 }
- 
-.pp{
-height: 100px;
-width: 100px;
-background-image: url("../public/image\ upload.png");
-background-size: cover;
+.right-sidebar {
+  height: 80%;
+  width: 4%;
+  background-image: url("../public/rightsidebar.png");
+  background-size: 100% 100%;
 }
-.plus{
-  height:20px;
+.left-sidebar {
+  height: 80%;
+  width: 4%;
+  background-image: url("../public/leftsidebar.png");
+  background-size: 100% 100%;
+}
+.t1 {
+  font-family: "Agencyfb";
+}
+
+.pp {
+  height: 100px;
+  width: 100px;
+  background-image: url("../public/image\ upload.png");
+  background-size: cover;
+}
+.plus {
+  height: 20px;
   width: 20px;
   background-image: url("../public/basil_add-outline.png");
   background-size: cover;
@@ -408,46 +407,46 @@ background-size: cover;
 .selector1 {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
- opacity: calc(50%);
+  opacity: calc(50%);
 }
-.right{
+.right {
   height: 200px;
   width: 200px;
 }
 /* ACCOUNT DETAILS  */
-.main1{
+.main1 {
   height: 100vh;
   width: 100vw;
   background-image: url("../public/sm.png");
   background-size: 100% 100%;
   font-family: "Agencyfb";
- }
- .ac{
+}
+.ac {
   height: 50px;
   width: 450px;
   background-image: url(../public/ac.svg);
   background-size: cover;
-  filter:brightness(100%);
+  filter: brightness(100%);
   /* filter: sepia(50%); */
- }
- .w{
+}
+.w {
   height: 30px;
   width: 35px;
   background-image: url(../public/w.png);
   background-size: cover;
- }
- .b{
+}
+.b {
   height: 40px;
   width: 40px;
   background-image: url(../public/bell.png);
   background-size: cover;
- }
- .p{
+}
+.p {
   height: 40px;
   width: 40px;
   background-image: url(../public/image\ upload.png);
   background-size: cover;
- }
+}
 
 /* HOMEPAGE */
 /* .home-body{
@@ -471,9 +470,65 @@ background-size: cover;
     background-size:100% 100%;
 } */
 
-@layer utilities{
-  .clip-path-navConsole{
-    clip-path: polygon( 0% 50%,0% 50%,0.075% 41.89%,0.291% 34.196%,0.638% 27.022%,1.103% 20.471%,1.674% 14.645%,2.34% 9.647%,3.088% 5.581%,3.908% 2.549%,4.787% 0.654%,5.714% 0%,94.286% 0%,94.286% 0%,95.213% 0.654%,96.092% 2.549%,96.912% 5.581%,97.66% 9.647%,98.326% 14.645%,98.897% 20.471%,99.362% 27.022%,99.709% 34.196%,99.925% 41.89%,100% 50%,100% 50%,99.925% 58.11%,99.709% 65.804%,99.362% 72.978%,98.897% 79.529%,98.326% 85.355%,97.66% 90.353%,96.912% 94.419%,96.092% 97.451%,95.213% 99.346%,94.286% 100%,85.597% 100%,82.045% 62.5%,76.2% 62.5%,72.785% 100%,27.321% 100%,23.474% 59.375%,17.628% 59.375%,13.929% 100%,5.714% 100%,5.714% 100%,4.787% 99.346%,3.908% 97.451%,3.088% 94.419%,2.34% 90.353%,1.674% 85.355%,1.103% 79.529%,0.638% 72.978%,0.291% 65.804%,0.075% 58.11%,0% 50% );
+@layer utilities {
+  .clip-path-navConsole {
+    clip-path: polygon(
+      0% 50%,
+      0% 50%,
+      0.075% 41.89%,
+      0.291% 34.196%,
+      0.638% 27.022%,
+      1.103% 20.471%,
+      1.674% 14.645%,
+      2.34% 9.647%,
+      3.088% 5.581%,
+      3.908% 2.549%,
+      4.787% 0.654%,
+      5.714% 0%,
+      94.286% 0%,
+      94.286% 0%,
+      95.213% 0.654%,
+      96.092% 2.549%,
+      96.912% 5.581%,
+      97.66% 9.647%,
+      98.326% 14.645%,
+      98.897% 20.471%,
+      99.362% 27.022%,
+      99.709% 34.196%,
+      99.925% 41.89%,
+      100% 50%,
+      100% 50%,
+      99.925% 58.11%,
+      99.709% 65.804%,
+      99.362% 72.978%,
+      98.897% 79.529%,
+      98.326% 85.355%,
+      97.66% 90.353%,
+      96.912% 94.419%,
+      96.092% 97.451%,
+      95.213% 99.346%,
+      94.286% 100%,
+      85.597% 100%,
+      82.045% 62.5%,
+      76.2% 62.5%,
+      72.785% 100%,
+      27.321% 100%,
+      23.474% 59.375%,
+      17.628% 59.375%,
+      13.929% 100%,
+      5.714% 100%,
+      5.714% 100%,
+      4.787% 99.346%,
+      3.908% 97.451%,
+      3.088% 94.419%,
+      2.34% 90.353%,
+      1.674% 85.355%,
+      1.103% 79.529%,
+      0.638% 72.978%,
+      0.291% 65.804%,
+      0.075% 58.11%,
+      0% 50%
+    );
   }
   .font-bebas {
     font-family: "BebasNeue";
@@ -481,13 +536,13 @@ background-size: cover;
   }
   .no-scrollbar::-webkit-scrollbar {
     display: none;
-}
+  }
   .no-scrollbar::-webkit-scrollbar {
     display: none;
-}
+  }
 }
 /* ACCOUNT CENTER */
-.ACMAIN{
+.ACMAIN {
   height: 100vh;
   width: 100vw;
   background-image: url("../public/bdragon.png");
@@ -503,49 +558,49 @@ background-size: cover;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: for a subtle shadow */
   opacity: calc(70%);
 }
-.AC-head-text{
-font-family: "Arial Rounded MT Bold";
-text-align: center;
-font-size: 20px;
-}
-.AC-text{
- font-family:Arial, Helvetica, sans-serif;
-text-align: center; 
-font-size: 12px;
-margin-top:6px;
-margin-bottom:10px;
-}
-.AC-span{
-  color : #0005FF;
-}
-.personal-info{
+.AC-head-text {
+  font-family: "Arial Rounded MT Bold";
+  text-align: center;
   font-size: 20px;
-  font-family:Arial, Helvetica, sans-serif;
-  margin-top:20px;
-  margin-bottom:20px;
-  border-radius : 10px;
-  font-size : 14px;
 }
-.personal-info:hover{
-  cursor : pointer;
+.AC-text {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: 12px;
+  margin-top: 6px;
+  margin-bottom: 10px;
 }
-.per-info-options{
+.AC-span {
+  color: #0005ff;
+}
+.personal-info {
   font-size: 20px;
-  font-family:Arial, Helvetica, sans-serif;
-  margin-top:20px;
-  margin-bottom:20px;
-  border-radius : 10px;
-  font-size : 14px;
-  opacity : calc();
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+.personal-info:hover {
+  cursor: pointer;
+}
+.per-info-options {
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  opacity: calc();
   /* padding: 0.25rem 0.5rem; */
 }
-.AC-input{
-  font-family:"Arial Rounded MT Bold";
+.AC-input {
+  font-family: "Arial Rounded MT Bold";
   letter-spacing: 0.64px;
   font-size: 15px;
   font-weight: 600;
-  border-radius : 5px;
-  text-align:center;
+  border-radius: 5px;
+  text-align: center;
 }
 .AC-input::placeholder {
   font-size: 15px;
@@ -553,33 +608,66 @@ margin-bottom:10px;
   color: #000;
   text-align: center;
 }
-.AC-buttons-cancel{
-  font-family:"Arial Rounded MT Bold";
-  border:2px solid white;
+.AC-buttons-cancel {
+  font-family: "Arial Rounded MT Bold";
+  border: 2px solid white;
   border-radius: 10px;
   padding: 8px 0;
   font-size: small;
   font-weight: bolder;
 }
-.AC-buttons-save{
-  font-family:"Arial Rounded MT Bold";
+.AC-buttons-save {
+  font-family: "Arial Rounded MT Bold";
   border-radius: 10px;
   padding: 8px 0;
   font-size: small;
   font-weight: bolder;
   /* background-color: #0CFFA7; */
 }
-.AC-pp{
-  border-radius : 50%;
+.AC-pp {
+  border-radius: 50%;
 }
-.AC-text-two{
-font-family: "Arial Rounded MT Bold";
-text-align: center; 
-font-size: 18px;
-margin-top:15px;
-margin-bottom:15px;
+.AC-text-two {
+  font-family: "Arial Rounded MT Bold";
+  text-align: center;
+  font-size: 18px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
-.Ac-cards{
-  align-items : center;
-  
+.Ac-cards {
+  align-items: center;
+}
+/* NIGHT HUNTER R7 FRO BGMI PAGE OVERVIEWS ETC */
+.bg-NH {
+  background-image: url("https://res.cloudinary.com/dzyezryhf/image/upload/v1737726383/o6xpkgnslpcilej7qdsb.svg");
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #000000;
+}
+.NH-heading {
+  font-family: "BebasNeue";
+  /* font-size: 25px; */
+  font-weight: bold;
+}
+.NH-option-heading {
+  font-family: "BebasNeue";
+  /* font-size: 25px; */
+  font-weight: bold;
+}
+.NH-options {
+  font-family: "BebasNeue";
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.frosted-glass-NH {
+  background-color: #000000; /* Transparent white */
+  backdrop-filter: blur(1px); /* Frosted glass effect */
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Border to enhance the effect */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: for a subtle shadow */
+  opacity: calc(80%);
 }

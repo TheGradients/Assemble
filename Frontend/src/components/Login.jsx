@@ -5,58 +5,44 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Login = () => {
-  const [username, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState(""); // State to track error messages
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
-  const getInputData = async (e) => {
-    e.preventDefault();
-    setErrorMessage(""); // Clear any existing error messages
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent form submission refresh
+    setErrorMessage("");
+
 
     try {
       const response = await axios.post(
-        '/api/v1/users/login',
-        {
-          username,
-          password,
-        },
-        {
-          withCredentials: true,
-        }
+        "/api/v1/users/login",
+        { username, password },
+        { withCredentials: true }
       );
-
+      console.log(username,password);
       if (response.status === 200 && response.data.success) {
-        console.log('API Response:', response.data);
+        console.log("API Response:", response.data);
         navigate("/browse");
-        setEmail("");
+        setUsername("");
         setPassword("");
       } else {
         setErrorMessage(response.data.message || "Invalid credentials. Please try again.");
       }
     } catch (error) {
-      console.error('Error during API call:', error);
+      console.error("Error during API call:", error);
       setErrorMessage(
         error.response?.data?.message || "An error occurred. Please try again."
       );
     }
   };
 
-  const cantSignin = (e) => {
-    e.preventDefault();
-    navigate("/PassRecovery");
-  };
-
-  const handlePrivacyPolicyClick4 = (e) => {
-    e.preventDefault();
-    navigate("/Register");
-  };
-
   return (
     <div className="body">
       <div className="page">
         <Header />
-        <form onSubmit={getInputData}>
+        <form onSubmit={handleSubmit}>
           <div className="sign-in-box">
             <div className="container">
               <h2 className="sign-in-box-heading">Sign In</h2>
@@ -65,7 +51,7 @@ const Login = () => {
               className="input-box"
               placeholder="USERNAME"
               value={username}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => setUsername(e.target.value)}
             />
             <input
               className="input-box"
@@ -75,31 +61,29 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
             <div className="flex gap-2">
-              <input
-                className="check-box"
-                type="checkbox"
-                id="staySignedIn"
-              />
+              <input className="check-box" type="checkbox" id="staySignedIn" />
               <label className="check-text font-medium" htmlFor="staySignedIn">
                 Stay Signed In
               </label>
             </div>
-            <button type="submit" className="sign-in-button">
+            <button type="submit" onClick={handleSubmit} className="sign-in-button">
               CONTINUE
             </button>
             {errorMessage && (
-              <p className="error-message">{errorMessage}</p> // Display error message
+              <p className="error-message text-red-500">{errorMessage}</p>
             )}
             <div className="flex justify-between">
               <button
+                type="button"
                 className="font-medium"
-                onClick={cantSignin}
+                onClick={() => navigate("/PassRecovery")}
               >
-                Can&apos;t Sign In
+                Can't Sign In
               </button>
               <button
+                type="button"
                 className="font-medium"
-                onClick={handlePrivacyPolicyClick4}
+                onClick={() => navigate("/Register")}
               >
                 Create a New Account
               </button>

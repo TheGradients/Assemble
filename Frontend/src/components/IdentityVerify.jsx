@@ -51,7 +51,7 @@ const IdentityVerify = () => {
     try {
       const endpoint = isForgotPassword
         ? "/api/v1/users/forgotPasswordVerificationCode"
-        : "/api/v1/users/forgotUsernameVerificationCode";
+        : "/api/v1/users/forgotUsername";
 
       const response = await axios.post(endpoint, {
         email,

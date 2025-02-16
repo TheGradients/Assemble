@@ -33,6 +33,7 @@ const AccountCenter = () => {
   const images = [
     "https://res.cloudinary.com/dzyezryhf/image/upload/v1737279929/lwtjedrq3ls0vy6jyymq.svg",
     "https://res.cloudinary.com/dzyezryhf/image/upload/v1737279951/q6eol9dwjadyvllkdfe0.svg",
+ 
     "https://res.cloudinary.com/dzyezryhf/image/upload/v1737279948/dgshgmbmoxjsyydnf8tu.svg",
     "https://res.cloudinary.com/dzyezryhf/image/upload/v1737279959/ux9mfgq1rsi62q0cmgb2.svg",
     "https://res.cloudinary.com/dzyezryhf/image/upload/v1737279927/jg8icrxi700co4s5itc1.svg",
@@ -58,9 +59,9 @@ const AccountCenter = () => {
         <Sidebar />
 
         {/* Frosted Glass Divs Container */}
-        <div className="absolute inset-0 flex flex-wrap justify-center items-center mt-[100px] gap-8">
+        <div className="absolute inset-0 flex flex-wrap justify-center items-center mt-[100px] gap-5 ">
           {/* First Frosted Glass Div */}
-          <div className="frosted-glass -mt-12 h-[97%] w-[20%] rounded-lg p-3">
+          <div className="frosted-glass -mt-14 h-[98%] w-[22%] rounded-lg p-3 ml-12">
             <div className="AC-head-text text-white">Account Center</div>
             <div className="AC-text text-white">
               Take a look at your Esports career and personal info, and enjoy
@@ -88,7 +89,7 @@ const AccountCenter = () => {
           </div>
 
           {/* Second Frosted Glass Div */}
-          <div className="frosted-glass -mt-14 h-[97%] w-[20%] rounded-lg p-3">
+          <div className="frosted-glass -mt-14 h-[98%] w-[22%] rounded-lg p-3">
             {/* Conditionally Render the Title and Description when Personal Info is clicked */}
             {isPersonalInfoClicked && (
               <>
@@ -166,11 +167,11 @@ const AccountCenter = () => {
           </div>
 
           {/* Third and Fourth Frosted Glass Divs Container */}
-          <div className="flex flex-col -mt-14 h-[97%] w-[40%] gap-4">
+          <div className="flex flex-col -mt-14 h-[98%] w-[44%] gap-4">
             {/* Third Frosted Glass Div */}
             <div
               className={`frosted-glass h-full flex-grow rounded-lg p-3 pl-24 pr-24 ${
-                isPersonalInfoClicked ? "h-[50%]" : "h-full"
+                isPersonalInfoClicked ? "h-[49%]" : "h-full"
               }`}
             >
               {selectedItem && (
@@ -365,7 +366,33 @@ const AccountCenter = () => {
                   {/* Render Different Elements for Esports Insight */}
                   {isEsportsInsight && selectedItem === "Badge" && (
                     <div>
-                      <p>Your Esports badge details.</p>
+                      <div className="flex flex-col gap-5">
+                        <div>
+                          <div className="AC-head-text">Choose A Badge</div>
+                          <div className="AC-text ">
+                            Pick a badge that shows off your gaming skills!
+                          </div>
+                        </div>
+                        <div>
+                          <input
+                            className=" AC-input w-full p-2 text-black"
+                            placeholder="Username"
+                          />
+
+                          <div className="flex mt-5 justify-between">
+                            <button className="AC-buttons-cancel w-52 text-white">
+                              Cancel
+                            </button>
+                            <button className="AC-buttons-save w-52 text-black bg-ASSgreen ">
+                              Save
+                            </button>
+                          </div>
+                          <div className="AC-text-two text-3xl">Overview</div>
+                        </div>
+                        <div className="AC-text pt-80">
+                          ASSEMBLE UID : 123456
+                        </div>
+                      </div>
                     </div>
                   )}
                   {isEsportsInsight && selectedItem === "BGMI" && (
@@ -388,7 +415,7 @@ const AccountCenter = () => {
                           placeholder="Username"
                         />
 
-                        <div className="flex mt-5 gap-2">
+                        <div className="flex mt-5 justify-between">
                           <button className="AC-buttons-cancel w-52 text-white">
                             Cancel
                           </button>
@@ -419,7 +446,7 @@ const AccountCenter = () => {
                           placeholder="Username"
                         />
 
-                        <div className="flex mt-5 gap-2">
+                        <div className="flex mt-5  justify-between">
                           <button className="AC-buttons-cancel w-52 text-white">
                             Cancel
                           </button>
@@ -450,7 +477,7 @@ const AccountCenter = () => {
                           placeholder="Username"
                         />
 
-                        <div className="flex mt-5 gap-2">
+                        <div className="flex mt-5 justify-between">
                           <button className="AC-buttons-cancel w-52 text-white">
                             Cancel
                           </button>
@@ -481,7 +508,7 @@ const AccountCenter = () => {
                           placeholder="Username"
                         />
 
-                        <div className="flex mt-5 gap-2">
+                        <div className="flex mt-5 justify-between">
                           <button className="AC-buttons-cancel w-52 text-white">
                             Cancel
                           </button>
@@ -512,7 +539,7 @@ const AccountCenter = () => {
                           placeholder="Username"
                         />
 
-                        <div className="flex mt-5 gap-2">
+                        <div className="flex mt-5 justify-between">
                           <button className="AC-buttons-cancel w-52 text-white">
                             Cancel
                           </button>
@@ -543,8 +570,7 @@ const AccountCenter = () => {
                 <div>
                   {/* AC-cards div with dynamic background */}
                   <div
-                    className="AC-cards h-32 w-[90%] ml-[4%] text-black rounded-lg bg-cover bg-center"
- 
+                    className="AC-cards h-36 w-[100%] ml-[4%] text-black rounded-lg bg-cover bg-center"
                     style={{
                       backgroundImage: `url(${selectedImage})`,
                       backgroundSize: "cover",

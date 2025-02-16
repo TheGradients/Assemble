@@ -63,10 +63,10 @@ const UsernameOTP = () => {
       <HeaderPR />
       <div className="pr-container">
         <div className="pr-top-box">
-          <button className="forgot-pass text-[#ffffff]">
+          <button className="forgot-pass text-white bg-black">
             FORGOT PASSWORD
           </button>
-          <button className="forgot-pass text-white">FORGOT USERNAME</button>
+          <button className="forgot-pass text-black bg-white">FORGOT USERNAME</button>
         </div>
         <div className="pr-bottom-box">
           <div className="container">

@@ -17,19 +17,16 @@ const PassRecovery = () => {
     try {
       const endpoint = isForgotPassword
         ? "/api/v1/users/forgotPasswordVerificationEmail"
-        : "/api/v1/users/forgotUsernameVerificationEmail";
-
-      const response = await axios.post(
-        " ",
-        {
-        email
-        },
-        {
-          withCredentials: true,
-        },
-        navigate("/identity-verify",{ state: { email } }),
-      );
-
+        : "/api/v1/users/forgetUsernameVerificationEmail";
+    // console.log(`${endpoint}`);
+    // console.log(email);
+    // console.log(isForgotPassword);
+    
+    const response = await axios.post(
+      endpoint,
+         {email})
+      console.log(response);
+    //  toast.success(response.data.message);
       if (response.status === 200 && response.data.success) {
         console.log("API Response:", response.data);
         navigate("/identity-verify", { state: { email ,isForgotPassword} });

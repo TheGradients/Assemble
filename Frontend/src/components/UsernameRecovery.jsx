@@ -1,12 +1,7 @@
 import React, { useState } from "react";
 
 
-import { Navigate, useNavigate } from "react-router-dom";
-const UsernameRecovery = () => {
-  const navigate = useNavigate();
-  // const handleClick = () => {
-  //   navigate("/UsernameOTP");
-  // }
+const UsernameRecover = () => {
  
   
 
@@ -16,15 +11,16 @@ const UsernameRecovery = () => {
         <HeaderPR />
         <div className="pr-container">
           <div className="pr-top-box">
-            <button className="forgot-pass text-white">FORGOT PASSWORD</button>
-            <button className="forgot-pass text-white  text-opacity-75">
+            <button className="forgot-pass text-white bg-black">
+              FORGOT PASSWORD
+            </button>
+            <button className="forgot-pass text-black bg-white text-opacity-75">
               FORGOT USERNAME
             </button>
           </div>
           <div className="pr-bottom-box">
-            {/* SAME AS THE SIGN-IN BOX */}
-            <div className="container ">
-              <div className="sign-in-box-heading ">PASSWORD RECOVERY</div>
+            <div className="container">
+              <div className="sign-in-box-heading">USERNAME RECOVERY</div>
               <p className="head-text">
                 I know, You Can Remember Clingy Words Given By Your Partner But
                 Gamertag Not!
@@ -37,7 +33,7 @@ const UsernameRecovery = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-              <button className="sign-in-button" onClick={handleClick} onClick={handleclick}>
+              <button className="sign-in-button" onClick={handleclick}>
                 VERIFY
               </button>
               {errorMessage && (
@@ -58,4 +54,4 @@ const UsernameRecovery = () => {
   );
 };
 
-export default UsernameRecovery;
+export default UsernameRecover;
