@@ -4,15 +4,16 @@ import ApiResponse from "../utils/ApiResponse.js";
 import { Game } from "../models/gameId.models.js";
 
 const addBgmiId = asyncHandler(async (req, res) => {
-    const { bgmiId } = req.body;
+    const { gameID } = req.body;
+    
     const user = req.user;
-    if (!bgmiId) {
+    if (!gameID) {
         throw new ApiError(400, "All Fields Are Required.");
     }
     try {
         await Game.findOneAndUpdate(
             { owner: user._id },
-            { bgmiId: bgmiId },
+            { bgmiId: gameID },
             { new: true }
         );
         return res
@@ -24,15 +25,15 @@ const addBgmiId = asyncHandler(async (req, res) => {
 });
 
 const addFreeFireId = asyncHandler(async (req, res) => {
-    const { freeFireId } = req.body;
+    const { gameID } = req.body;
     const user = req.user;
-    if (!freeFireId) {
+    if (!gameID) {
         throw new ApiError(400, "All Fields Are Required.");
     }
     try {
         await Game.findOneAndUpdate(
             { owner: user._id },
-            { freefireId: freeFireId },
+            { freefireId: gameID },
             { new: true }
         );
         return res
@@ -44,9 +45,9 @@ const addFreeFireId = asyncHandler(async (req, res) => {
 });
 
 const addValorantId = asyncHandler(async (req, res) => {
-    const { valorantId } = req.body;
+    const { gameID } = req.body;
     const user = req.user;
-    if (!valorantId.tagline || !valorantId.riotId) {
+    if (!gameID.tagline || !gameID.riotId) {
         throw new ApiError(400, "All Fields Are Required.");
     }
     try {
@@ -54,8 +55,8 @@ const addValorantId = asyncHandler(async (req, res) => {
             { owner: user._id },
             {
                 valorantId: {
-                    riotId: valorantId.riotId,
-                    tagline: valorantId.tagline
+                    riotId: gameID.riotId,
+                    tagline: gameID.tagline
                 }
             },
             { new: true }
@@ -69,15 +70,15 @@ const addValorantId = asyncHandler(async (req, res) => {
 });
 
 const addCodmId = asyncHandler(async (req, res) => {
-    const { codmId } = req.body;
+    const { gameID } = req.body;
     const user = req.user;
-    if (!codmId) {
+    if (!gameID) {
         throw new ApiError(400, "All Fields Are Required.");
     }
     try {
         await Game.findOneAndUpdate(
             { owner: user._id },
-            { codmId: codmId },
+            { codmId: gameID },
             { new: true }
         );
         return res
@@ -89,15 +90,15 @@ const addCodmId = asyncHandler(async (req, res) => {
 });
 
 const addAsphaltId = asyncHandler(async (req, res) => {
-    const { asphaltId } = req.body;
+    const { gameID } = req.body;
     const user = req.user;
-    if (!asphaltId) {
+    if (!gameID) {
         throw new ApiError(400, "All Fields Are Required.");
     }
     try {
         await Game.findOneAndUpdate(
             { owner: user._id },
-            { asphaltId: asphaltId },
+            { asphaltId: gameID },
             { new: true }
         );
         return res
